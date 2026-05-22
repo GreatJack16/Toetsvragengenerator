@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="top">
+    <div class="top-left">
+      <a href="{{ url_for('index') }}" title="Home">⌂</a>
+    </div>
+    <div class="brand">Uva Toetsgenerator</div>
+    <div class="top-right">
+      <a href="{{ url_for('settings') }}" title="Instellingen">⚙</a>
+      <a href="#" title="Help" onclick="alert('Voor vragen of hulp, contacteer ons op het volgende telefoonnummer: +31 (0)20 525 1402'); return false;">?</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="card">
+        <h2>Weergave</h2>
+        <div class="controls">
+          <div class="toggle" style="display:block;">
+            <div style="margin-bottom:12px;">
+              <h1>Licht / donker modus</h1>
+              <div class="sub">Kies hoe de interface eruit moet zien</div>
+            </div>
+            <div class="subgoals-options">
+              <label><input type="radio" name="theme_mode" checked> Licht</label>
+              <label><input type="radio" name="theme_mode"> Donker</label>
+              <label><input type="radio" name="theme_mode"> Systeem</label>
+            </div>
+          </div>
+
+          <div class="toggle" style="display:block;">
+            <div style="margin-bottom:12px;">
+              <h1>Taal</h1>
+              <div class="sub">Selecteer de taal van de website</div>
+            </div>
+            <select>
+              <option>Nederlands</option>
+              <option>English</option>
+              <option>Deutsch</option>
+              <option>Fran&#231;ais</option>
+              <option>Espa&#241;ol</option>
+              <option>Italiano</option>
+              <option>Polski</option>
+              <option>日語</option>
+              <option>中文</option>
+            </select>
+          </div>
+
+          <div class="toggle" style="display:block;">
+            <div style="margin-bottom:12px;">
+              <h1>Lettertype / grootte</h1>
+              <div class="sub">Pas het lettertype en de tekstgrootte aan</div>
+            </div>
+            <div class="row" style="grid-template-columns: 1fr 140px; margin-bottom: 0;">
+              <select>
+                <option>Inter</option>
+                <option>Arial</option>
+                <option>Aptos</option>
+                <option>Roboto</option>
+                <option>Open sans</option>
+                <option>Calibri</option>
+                <option>Times new Roman</option>
+                <option>Impact</option>
+                <option>Comic sans</option>
+              </select>
+              <select>
+                <option>Klein</option>
+                <option selected>Normaal</option>
+                <option>Groot</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="card" style="margin-top:20px">
+      <h1>Opmerking</h1>
+      <textarea readonly>Deze instellingenpagina is niet bedoeld voor gebruik, dit is slechts een visuele weergave van hoe deze pagina eruit zou kunnen zien.</textarea>
+    </div>
+  </div>
+</body>
+</html>

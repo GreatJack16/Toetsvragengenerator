@@ -1,0 +1,25 @@
+Zet de onderstaande leerdoelen om naar kleine, toetsbare subdoelen.
+
+Regels:
+- Geef nooit het oorspronkelijke leerdoel terug als één geheel.
+- Splits op meerdere onderwerpen, komma's, "en", "of" en meerdere werkwoorden.
+- Elk subdoel bevat één onderwerp en één actie.
+- Elk subdoel moet geschikt zijn voor één tentamenvraag.
+- Gebruik alleen dit format:
+
+Subdoel 1: [korte titel]
+Bloom-niveau: Wat het bijbehorende Blooms-niveau is (e.g. Begrijpen)
+Beschrijving: De student kent/kan ...
+
+Subdoel 2: [korte titel]
+Bloom-niveau: Wat het bijbehorende Blooms-niveau is (e.g. Begrijpen)
+Beschrijving: De student kent/kan ...
+
+Niveau:
+{niveau}
+
+Onderwerp:
+{onderwerp}
+
+Leerdoelen:
+{leerdoelen}

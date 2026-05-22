@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inloggen</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='login.js') }}"></script>
+</head>
+
+<body>
+  <div class="top">
+    <div class="top-left">
+      <a href="{{ url_for('index') }}" title="Home">⌂</a>
+    </div>
+
+    <div class="brand">
+      Uva Toetsgenerator
+    </div>
+
+    <div class="top-right">
+      <a href="{{ url_for('settings') }}" title="Instellingen">⚙</a>
+      <a href="#" title="Help" onclick="alert('Voor vragen of hulp, contacteer ons op het volgende telefoonnummer: +31 (0)20 525 1402'); return false;">?</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card" style="max-width:520px; margin:0 auto;">
+      <h2>Inloggen</h2>
+      <div class="sub">Log in om toegang te krijgen tot de Uva Toetsgenerator.</div>
+        {% if error %}
+        <p style="color:red; margin-top:16px;">{{ error }}</p>
+        {% endif %}
+
+      <form method="post" action="{{ url_for('inloggen') }}">
+        <div style="margin-top:20px;">
+          <label for="email">E-mailadres</label>
+          <input id="email" name="email" type="email" placeholder="naam@uva.nl" required>
+        </div>
+
+        <div style="margin-top:16px;">
+          <label for="password">Wachtwoord</label>
+          <input id="password" name="password" type="password" placeholder="Wachtwoord" required>
+        </div>
+
+        <div class="footer" style="margin-top:24px;">
+          <button class="btn primary" type="submit">
+            Inloggen
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

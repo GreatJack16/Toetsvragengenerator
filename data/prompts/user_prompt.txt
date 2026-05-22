@@ -1,0 +1,41 @@
+Genereer een tentamen op basis van de hieronder opgegeven studiestof en subdoelen.
+
+Je genereert 'single best-answer' vragen voor dit tentamen verdeeld over Bloom's niveau. Genereer het aantal vragen per aangegeven subdoel en specifieke Bloom's niveau. Baseer de vragen alleen op en verspreid over de studiestof.
+Maak de vragen moeilijk, op basis van de gegeven studiestof en plausibel!
+
+Voorbeelden van een goede tentamenvraag zijn:
+{voorbeeldvragen}
+              
+(Gebruik de voorbeelden als illustratie van de stijl en niveau. De gegenereerde vragen moeten aansluiten bij de specifieke subdoelen hieronder)
+
+Let extra op het volgende:
+- Maak geen dubbele vragen. Stel altijd 1 vraag per keer.
+- Maak alle antwoordopties EVEN LANG. Maak het correcte antwoord NOOIT de langste antwoordoptie!! 
+- Zorg dat de afleiders (incorrecte antwoord) op het goede antwoord lijken
+- Genereer PRECIES het volgende aantal vragen per Bloom's niveau. Genereer NIET minder of meer. Geef alle vragen van hetzelfde Bloom's niveau direct onder elkaar.
+- Verander de subdoelen NIET
+
+Genereer enkele vragen die als lastig worden ervaren door de student. Gebruik één van de volgende technieken om dit te bereiken:
+1. Toets op compleetheid van de kennis. Vraag niet naar één symptoom, maar naar alle symptomen of het gehele klinische beeld. Bijvoorbeeld: niet “Welk symptoom hoort bij hartfalen?”, maar “Welke combinatie van symptomen is het meest kenmerkend voor hartfalen?”
+2. Toets een concept voorkomend in de leerstof in andere context. In de leerstof wordt bijvoorbeeld behandeld dat lipofiele medicijnen beter de bloed-hersenbarrière kunnen passeren. Een vraag zou dan kunnen zijn, "Wat zijn de verwachte bijwerkingen van het medicijn lisinopril?". De student moet dan drie denkstappen zetten, namelijk 1) is het medicijn lipofiel? 2) gaat het de bloed-hersenbarrière over? 3) welk effect heeft dat?
+3. Toets concepten die moeilijker te vinden zijn in de studiestof, die alleen studenten die de stof goed bestudeerd hebben zouden weten.
+
+Zorg altijd dat alle afleiders (incorrecte antwoordopties) plausibel zijn en een student echt aan het denken zetten. Gebruik hierbij de volgende technieken om dit te bereiken:
+1. Elke afleider moet enkele kernkenmerken delen met het juiste antwoord, maar verschillen op één of twee subtiele, diagnostisch relevante punten. Vermijd afleiders die volledig andere ziekte-entiteiten beschrijven
+2. Maak afleiders correct maar incompleet; te specifiek; of minder voorkomend. Bijvoorbeeld: Bij de vraag "Wat is de eerste stap in de behandeling van een patiënt met ernstige hypertensie?" is de afleider 'bètablokkers' te specifiek omdat dit slechts bij bepaalde comorbiditeiten de voorkeur heeft.
+4. Creëer afleiders op basis van veelvoorkomende fouten of misconcepties. Bijvoorbeeld: In de vraag "Wat is de hoogstwaarschijnlijkste aandoening met hyperinflatie als typisch beeld" is het correcte antwoord COPD, maar is pneumonie en goede afleider omdat het dit beeld wel kan voorkomen, maar veel zeldzamer is.
+
+Herlees na het genereren van de vragen elke vraag en antwoordoptie, en verbeter spelling en grammatica aan de hand van Nederlandse spel- en grammatica regels. Geef de definitieve output pas nadat je dit hebt gedaan.
+
+Subdoelen:
+{subdoelen} 
+
+Bloom's niveau(s):
+{blooms}
+
+Genereer PRECIES het volgende aantal vragen per Bloom's niveau:
+{aantal_vragen}
+          
+Studiestof:
+{study_material}
+

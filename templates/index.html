@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examen Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+
+  <div class="top">
+  <div class="top-left">
+    <a href="{{ url_for('index') }}" title="Home">⌂</a>
+  </div>
+
+  <div class="brand">
+    Uva Toetsgenerator
+  </div>
+
+  <div class="top-right">
+    <a href="{{ url_for('settings') }}" title="Instellingen">⚙</a>
+    <a href="#" title="Help" onclick="alert('Voor vragen of hulp, contacteer ons op het volgende telefoonnummer: +31 (0)20 525 1402'); return false;">?</a>
+  </div>
+</div>
+  <div class="wrap">
+    <div class="card" style="margin-bottom:20px">
+  <h2>Welkom bij de UvA toetsvragengenerator!</h2>
+  <textarea readonly>Met deze tool stelt u in enkele stappen een examen samen op basis van uw studiemateriaal, leerdoelen en gewenste instellingen. U kunt bestanden uploaden, het niveau en de vraagverdeling bepalen, en aangeven hoe de subdoelen moeten worden verwerkt. Daarna genereert de tool automatisch een complete toets die u kunt controleren, goedkeuren en exporteren. Volg de stappen hieronder om te beginnen.</textarea>
+</div>
+    <form method="post" action="/generate" enctype="multipart/form-data">
+      <div class="card" style="margin-bottom:20px">
+        <h2>Stap 1: Examenconfiguratie</h2>
+        <div class="row">
+          <div><label>Onderwerp</label><input id="onderwerp" name="onderwerp" placeholder="Bijv. Geneeskunde"></div>
+          <div><label>Niveau</label><select name="niveau" id="niveau">
+    <option value="makkelijk">Makkelijk</option>
+    <option value="gemiddeld">Gemiddeld</option>
+    <option value="moeilijk">Moeilijk</option>
+    <option value="gemengd">Gemengd</option>
+  </select></div>
+          <div><label>Titel / selectie</label><input id="selection" name="selection" placeholder="Bijv. Examen 1e jaar"></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>Stap 2: Bronmateriaal</h2>
+          <div class="sub">Upload de verplichte bestanden* en optionele voorbeeldvragen.</div>
+          <div class="upload">
+            <div class="drop">
+              <strong>Studiemateriaal*</strong>
+              <span>PDF / DOCX / TXT</span>
+              <input id="study_material" type="file" name="study_material" accept=".pdf,.doc,.docx,.txt" style="margin-top:12px;border:none;background:transparent;padding:0"></div>
+            <div class="drop">
+              <strong>Leerdoelen*</strong>
+              <span>DOCX / TXT</span>
+              <input id="leerdoelen" type="file" name="leerdoelen" accept=".doc,.docx,.txt" style="margin-top:12px;border:none;background:transparent;padding:0"></div>
+            <div class="drop">
+              <strong>Voorbeeldvragen</strong>
+              <span>PDF / TXT</span>
+              <input id="voorbeeldvragen" type="file" name="voorbeeldvragen" accept=".txt,.pdf" style="margin-top:12px;border:none;background:transparent;padding:0"></div>
+            <div><label>Extra instructies</label><textarea id="extra_instructions" name="extra_instructions" placeholder="Optionele toelichting..."></textarea></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Stap 3: Instellingen</h2>
+          <div class="sub">Voer het gewenste aantal vragen per blooms-niveau in.</div>
+          <div class="controls">
+            <div>
+              <div class="bloom"><input name="blooms" value="Onthouden" readonly><input id="aantal_onthouden" name="aantal_onthouden" placeholder="5"></div>
+              <div class="bloom"><input name="blooms" value="Begrijpen" readonly><input id="aantal_begrijpen" name="aantal_begrijpen" placeholder="10"></div>
+              <div class="bloom"><input name="blooms" value="Toepassen" readonly><input id="aantal_toepassen" name="aantal_toepassen" placeholder="5"></div>
+            </div>
+            <div class="toggle" style="display:block;">
+  <div>
+    <h2>Subdoelen</h2>
+    <div class="subgen" id="subgen">
+      Genereer de subdoelen op basis van de leerdoelen.
+    </div>
+    <div class="subup" id="subup">
+      Upload de subdoelen.
+    </div>
+  </div>
+
+  <div class="subgoals-options">
+  <label>
+    <input type="radio" name="subgoals_mode" value="generate" checked>
+    Genereer
+  </label>
+
+  <label>
+    <input type="radio" name="subgoals_mode" value="upload">
+    Upload
+  </label>
+</div>
+
+<div id="generate-subdoelen-box">
+  <button type="button" class="btn primary" id="generate-subgoals-btn">
+  Generate subdoelen
+</button>
+  <textarea id="generated_subdoelen" name="generated_subdoelen" placeholder="Hier verschijnen de gegenereerde subdoelen na het genereren..." readonly></textarea>
+</div>
+
+<div id="upload-subdoelen-box" class="drop">
+  <strong>Subdoelenbestand</strong>
+  <span>DOCX / TXT / PDF</span>
+  <input id="subdoelen_file" type="file" name="subdoelen_file" accept=".doc,.docx,.txt,.pdf" style="margin-top:12px;border:none;background:transparent;padding:0">
+</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card action-summary" style="margin-top:20px">
+  <div class="summary-left">
+    <h2>Start examen generatie</h2>
+    <p>Controleer hieronder of alles klopt voordat u het examen laat genereren.</p>
+
+    <ul class="summary-list">
+      <li><strong>Titel:</strong> <span id="sum-selection">—</span></li>
+      <li><strong>Onderwerp:</strong> <span id="sum-onderwerp">—</span></li>
+      <li><strong>Niveau:</strong> <span id="sum-niveau">—</span></li>
+      <li><strong>Bloom:</strong> <span id="sum-blooms">—</span></li>
+      <li><strong>Subdoelen:</strong> <span id="sum-subgoals">Genereer</span></li>
+      <li><strong>Bestanden:</strong> <span id="sum-files">geen bestanden geselecteerd</span></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <button id="generate-btn" class="btn primary" type="button" name="action" value="generate_exam">
+      Start examen generatie
+    </button>
+
+  <div id="loading" style="display:none; margin-top:20px;">
+    <p>Examen wordt gegenereerd, dit kan enkele minuten duren...</p>
+    <div class="loader"></div>
+  </div>
+
+</div>
+</div>
+    </form>
+    <div id="exam-output" class="card" style="margin-top:20px; display:none;">
+  <h2>Gegenereerd examen</h2>
+  <textarea id="exam-result" style="width:100%; min-height:400px;" readonly></textarea>
+  <div style="margin-top:10px;">
+    <button type="button" id="btn-regenerate" class="btn secondary">Gehele set opnieuw genereren</button>
+    <button type="button" id="btn-approve" class="btn primary">Examen goedkeuren & Exporteren</button>
+  </div>
+  <div id="export-buttons" style="margin-top:20px; display:none;">
+    <button type="button" id="btn-download-docx" class="btn primary">Download DOCX</button>
+    <button type="button" id="btn-download-pdf" class="btn primary">Download PDF</button>
+  </div>
+</div>
+</div>
+</body>
+</html>

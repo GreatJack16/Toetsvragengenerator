@@ -1,0 +1,25 @@
+Op basis van de opgegeven leerdoelen, genereer afgebakende leerdoelen in de vorm 'De student kent ...' (Bloom-niveau begrijpen) en 'De student kan ...' (Bloom-niveau toepassen). Genereer deze leerdoelen zodanig dat per leerdoel een tentamenvraag gegenereerd kan worden die op niveau is van de {niveau}. Genereer ENKEL leerdoelen, en genereer zoveel leerdoelen als adequaat wordt geacht om de volledige lading van de opgegeven bulletpoints te dekken.
+
+Splits leerdoelen die meerdere onderwerpen bevatten in aparte leerdoelen. Splits het leerdoel "De student kent de belangrijkste verwekkers van tonsillitis, laryngitis subglottica en peritonsillair abces" bijvoorbeeld in drie aparte subdoelen, "De student kent de belangrijkste verwekkers van tonsillitis", "De student kent de belangrijkste verwekkers van laryngitis subglottica", "De student kent de belangrijkste verwekkers van peritonsillair abces"
+
+Genereer leerdoelen in het volgende formaat:
+**TITEL** (e.g. 'Kindervaccinatie')
+Leerdoel A
+Leerdoel B
+Leerdoel C
+...
+
+**TITEL**
+Leerdoel E
+Leerdoel F
+Leerdoel G
+...
+
+**TITEL**
+Leerdoel H
+Leerdoel I
+Leerdoel J
+...
+                
+Leerdoelen:
+{leerdoelen}

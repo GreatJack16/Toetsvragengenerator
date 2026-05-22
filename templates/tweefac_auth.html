@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twee-factor Verificatie</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='tweefac_auth.js') }}" defer></script>
+</head>
+
+<body>
+  <div class="top">
+    <div class="top-left">
+      <a href="{{ url_for('inloggen') }}" title="Terug naar inloggen">⌂</a>
+    </div>
+
+    <div class="brand">
+      Uva Toetsgenerator
+    </div>
+
+    <div class="top-right">
+      <a href="{{ url_for('settings') }}" title="Instellingen">⚙</a>
+      <a href="#" title="Help" onclick="alert('Voor vragen of hulp, contacteer ons op het volgende telefoonnummer: +31 (0)20 525 1402'); return false;">?</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card" style="max-width:520px; margin:0 auto;">
+      <h2>Verificatie</h2>
+      <div class="sub">
+        Voer de 6-cijferige code in die is gegenereerd na het inloggen.
+      </div>
+
+      <p style="margin-top:16px;">
+        Code verloopt over:
+        <strong id="timer">08:00</strong>
+      </p>
+
+      <p id="error" style="display:none; color:red; margin-top:16px;"></p>
+
+      <form id="twofaForm">
+        <div style="margin-top:20px;">
+          <label for="code">Code</label>
+          <input
+            id="code"
+            name="code"
+            type="text"
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            placeholder="Bijv. 123456"
+            required
+          >
+        </div>
+
+        <div class="footer" style="margin-top:24px;">
+          <button id="verifyBtn" class="btn primary" type="submit">
+            Verifiëren
+          </button>
+
+          <button id="resendBtn" class="btn secondary" type="button" disabled>
+            Code opnieuw sturen
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html> 
